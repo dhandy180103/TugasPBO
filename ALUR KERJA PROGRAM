@@ -1,0 +1,8 @@
+User akan memasukan data diri (nama, no Hp alamat)
+lalu program akan menampilkan daftar harga sewa kendaraan
+user akan mimilih kendaraan yang akan di sewa
+user akan memasukan lama nya meminjam
+program akan menghitung biaya sewa kendaraan sesuai isian dari user
+user membayar biaya sewa tersebut dan mendapatkan kembalian
+program akan mencetak struk pembayaran
+
