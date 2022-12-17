@@ -1,30 +1,48 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Customer user = new Customer();
-        user.isiForm();
+
+        Rental sewa = new Transaksi();
+        Customer user = new Customer(sewa);
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Silahkan pilih Kendaraan :");
-        System.out.println("1. Mobil");
-        System.out.println("2. Motor");
-        System.out.print("Masukkan pilihan : ");
-        int pilih = input.nextInt();
-        switch (pilih) {
-            case 1:
-                Kendaraan mobil = new Mobil();
-                mobil.daftar();
-                break;
-            case 2:
-                Kendaraan motor = new Motor();
-                motor.daftar();
-                break;
-        }
+        String aksi;
 
-        Transaksi transaksi = new Transaksi();
-        transaksi.transaksi();
-        //simpen dulu disini ya...
-//        System.out.print("Total biaya : "+   transaksi.hitungBiaya(harga,lama));
+        while(true){
+            System.out.println("\n==========================");
+            System.out.println("   SEWA KENDARAAN YOGYA   ");
+            System.out.println("==========================");
+            System.out.println("[1] Mengisi Form ");
+            System.out.println("[2] Memilih Kendaraan ");
+            System.out.println("[3] Melakukan Transaksi ");
+            System.out.println("[4] Melakukan Pembayaran ");
+            System.out.println("[0] Keluar");
+            System.out.println("--------------------------");
+            System.out.print("Pilih aksi> ");
+            aksi = input.nextLine();
+
+            if(aksi.equalsIgnoreCase("1")){
+                user.isiForm();
+                input.nextLine();
+            } else if (aksi.equalsIgnoreCase("2")){
+                user.memilih();
+                input.nextLine();
+            } else if (aksi.equalsIgnoreCase("3")){
+                user.melakukanTransaksi();
+                input.nextLine();
+            } else if (aksi.equalsIgnoreCase("4")){
+                user.pembayaran();
+                input.nextLine();
+            } else if (aksi.equalsIgnoreCase("0")){
+                System.out.println("Selamat Anda Telah menyelesaikan Transaksi");
+                System.out.println("Terimakasih <3");
+                System.exit(0);
+            } else {
+                System.out.println("Kamu memilih aksi yang salah!");
+                input.nextLine();
+            }
+        }
     }
 }
